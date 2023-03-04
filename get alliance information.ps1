@@ -121,7 +121,11 @@ while($true){
     #>
     $response = getAllianceInfo
     $a = $response.Content | convertfrom-json
-    write-host $a
+    #write-host $a
+    if($a.result -eq $false){
+        Show-Notification -ToastTitle "Refresh the game page and rerun the code with new access token"
+        break
+    }
     foreach($ids in $a.reddots){
         if(($ids.reddotIdx -eq 6) -and ($ids.count -gt 0)){
             write-host "Help Needed - "$ids.count -ForegroundColor Green
