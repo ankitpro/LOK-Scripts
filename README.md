@@ -8,7 +8,7 @@
 * [Things to keep in mind](#things-to-keep-in-mind)
 	* [What to do](#what-to-do)
 	* [What not to do](#what-not-to-do)
-* [Upcoming Features - Coming Soon](#upcoming-features)
+* [Upcoming Features - Coming Soon](#upcoming-features---coming-soon)
 <!--te-->
 
 
