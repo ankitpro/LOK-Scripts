@@ -8,6 +8,7 @@
 * [Things to keep in mind](#things-to-keep-in-mind)
 	* [What to do](#what-to-do)
 	* [What not to do](#what-not-to-do)
+* [Upcoming Features - Coming Soon](#upcoming-features)
 <!--te-->
 
 
@@ -45,3 +46,9 @@
 
 ### **What not to do**
 1. Do not close the game session in the browser as that might make the developer know that a script is running and your access token might change.
+
+# **Upcoming Features - Coming Soon**
+1. Adding logging to check things done by the script.
+2. Multiple account handling feature with reference name as input for the EU.
+3. Enable or disable notifications.
+4. Providing a link of each game after its status so that EU's can open the link and know the status of that specific game.
