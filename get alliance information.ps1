@@ -12,7 +12,9 @@
     Version 1.0 - initial release of Script
 #>
 
-
+$helped = 0
+$donated = 0
+$notification = Read-Host "Do you want to get notification?? Enter y for yes and n for no"
 
 function Show-Notification {
     [cmdletbinding()]
@@ -130,6 +132,7 @@ while($true){
         if(($ids.reddotIdx -eq 6) -and ($ids.count -gt 0)){
             write-host "Help Needed - "$ids.count -ForegroundColor Green
             $response = helpAll | convertfrom-json
+            $helped += $ids.count
             $message += "`nHelp Needed - " + $ids.count
             $message += "`nHelped - " + $response.result
             write-host "Helped - "$response.result -ForegroundColor Green
@@ -139,6 +142,7 @@ while($true){
         }elseif(($ids.reddotIdx -eq 8) -and ($ids.count -gt 0)){
             write-host "Technology - "$ids.count -ForegroundColor Green
             $response = donateAll | convertfrom-json
+            $donated += $ids.count
             $message += "`nTechnology - " + $ids.count
             $message += "`nTechnology Donated - " + $response.result
             write-host "Technology Donated - "$response.result -ForegroundColor Green
@@ -150,12 +154,17 @@ while($true){
             write-host "Gifts claimed - "$response.result -ForegroundColor Green
         }
     }
-    if($message -ne ""){
-        Show-Notification -ToastTitle $message
+    if($notification.ToLower() -eq 'y'){
+        if($message -ne ""){
+            Show-Notification -ToastTitle $message
+        }
     }
+    
     $currentTime = Get-Date -UFormat "%A %m/%d/%Y %R %Z"
     write-host $currentTime
     write-host "Time to sleep - " $timeToSleep
+    write-host "Total helped so far - $helped"
+    write-host "Total donated so far - $donated"
     Start-Sleep -Seconds $timeToSleep
 }
 
